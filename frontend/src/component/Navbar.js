@@ -21,10 +21,14 @@ const Navbar = () => {
                                 Profile
                             </a>
                             </li>
-                            <Link to="Login">
-                                Loginn
-                            </Link>
-                            <li><a>Logout</a></li>
+                                <Link to="Register">
+                                    Register
+                                </Link>
+                            <li>
+                                <Link to="Login">
+                                    Loginn
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
