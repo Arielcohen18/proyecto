@@ -52,7 +52,11 @@ function Register() {
         username: username,
         password: password
       }
-    ).then(function(res) {
+    ).catch(function(error) {
+      
+      alert("Error en el inicio de sesión. Verifica tu correo electrónico y contraseña.");
+      
+    }).then(function(res) {
       client.post(
         "/api/login",
         {
@@ -61,7 +65,9 @@ function Register() {
         }
       ).then(function(res) {
         setCurrentUser(true);
-      });
+      }).catch(function(error) {
+        setCurrentUser(false);
+    }); 
     });
   }
 
@@ -128,8 +134,8 @@ function Register() {
     {
         registrationToggle ? (
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <Form className="space-y-6" action="#" method="POST" onSubmit={e => submitLogin(e)}>
-                    <div>
+                <Form className="space-y-6" action="#" method="POST" onSubmit={e => submitRegistration(e)}>
+                    <div> 
                         <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
                         Email address
                         </label>
